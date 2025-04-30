@@ -5,12 +5,21 @@
   font-family: sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 body {
   background-color: #fff9a8;
   text-align: center;
   align-items: center;
-  min-height: auto;
-  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -33,7 +42,7 @@ h1 {
 #stop,
 #reset {
   border: none;
-  background-color: #03A791;
+  background-color: #03a791;
   padding: 15px 40px;
   border-radius: 45px;
   font-size: 2rem;
@@ -45,41 +54,139 @@ h1 {
 .button {
   display: flex;
   justify-content: center;
-  padding-bottom: 50px;
+  position: relative;
+  padding-bottom: 20px;
 }
 
 button {
   margin: 20px;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(4px);
 }
 
 #start:hover {
-    background-color: #F1BA88;
-    color: white;
-    box-shadow: 5px 5px 5px #caa37f;
+  background-color: #f1ba88;
+  color: white;
+  box-shadow: 5px 5px 5px #caa37f;
 }
 
 #reset:hover {
-    background-color: #F1BA88;
-    color: white;
-    box-shadow: 5px 5px 5px #caa37f;
+  background-color: #f1ba88;
+  color: white;
+  box-shadow: 5px 5px 5px #caa37f;
 }
 
 #stop:hover {
-    background-color: #F1BA88;
-    color: white;
-    box-shadow: 5px 5px 5px #caa37f;
+  background-color: #f1ba88;
+  color: white;
+  box-shadow: 5px 5px 5px #caa37f;
+}
+
+/* Layout dasar */
+.main-content {
+  flex: 1;
+  padding-bottom: 50px; /* jarak antara tombol dan ombak */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-container {
+  width: 100%;
+  margin-top: auto; /* Jarak dari tombol di atas */
+}
+
+.wave {
+  position: relative;
 }
 
 .waves {
-  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+}
+
+/*
+.waves {
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height:  auto;
-  margin-bottom: 7px; /*Fix for safari gap*/
+  margin-bottom: 7px; 
   min-height: 200px;
   max-height: auto;
   margin: 0;
+} 
+*/
+/*popup*/
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(to bottom right, #03a791, #f1ba88);
+  padding: 100px 200px;
+  z-index: 1;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px #caa37f;
+}
+
+.popup:focus {
+  outline: none;
+}
+
+.popup h2 {
+  font-size: 2.7em;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.popup button {
+  border: none;
+  background-color: #03a791;
+  color: #fff;
+  padding: 20px 30px;
+  width: 150px;
+  border-radius: 20px;
+  margin-top: 30px;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  color: white;
+  box-shadow: 2px 2px 2px #000000;
+  transition: 0.4s;
+}
+
+.popup button:active {
+  transform: translateY(4px);
+  box-shadow: 0px 0px 0px #000000;
+  transition: 0.1s;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+
+/*svg*/
+
+svg {
+  z-index: -1;
 }
 
 /* Animation */
@@ -114,11 +221,7 @@ button {
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
   .waves {
-    
     height: 80px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
   }
 
   .timer {
@@ -126,11 +229,12 @@ button {
     letter-spacing: 10px;
   }
   h1 {
-    font-size: 3em;
+    font-size: 2em;
     letter-spacing: 5px;
   }
   #start,
-  #stop, #reset {
+  #stop,
+  #reset {
     font-size: 1.7rem;
     width: 130px;
     padding: 20px;
@@ -139,14 +243,29 @@ button {
   .button {
     margin: 20px;
   }
+
+  .popup {
+    padding: 70px 130px;
+  }
+
+  .popup button {
+    padding: 15px 20px;
+    width: 130px;
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  .popup {
+    padding: 30px 60px;
+    font-size: 1em
+  }
+  
 }
 
 @media (max-width: 425px) {
   .waves {
     height: 40px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
   }
 
   .timer {
@@ -158,7 +277,8 @@ button {
     letter-spacing: 5px;
   }
   #start,
-  #stop, #reset {
+  #stop,
+  #reset {
     font-size: 1rem;
     width: 100px;
     padding: 20px;
@@ -166,5 +286,66 @@ button {
 
   .button {
     margin: 5%;
+  }
+
+  .popup {
+    padding: 20px 50px;
+    font-size: 0.8em
+  }
+}
+
+@media (max-width: 375px) {
+  .waves {
+    height: 35px;
+  }
+
+  .timer {
+    font-size: 2.5em;
+    letter-spacing: 5px;
+  }
+  h1 {
+    font-size: 1.3em;
+    letter-spacing: 5px;
+  }
+  #start,
+  #stop,
+  #reset {
+    font-size: 0.9rem;
+    width: 80px;
+    padding: 16px;
+  }
+
+  .button {
+    margin: 5%;
+  }
+}
+
+@media (max-width: 320px) {
+  .waves {
+    height: 30px;
+  }
+
+  .timer {
+    font-size: 2em;
+    letter-spacing: 5px;
+  }
+  h1 {
+    font-size: 1.2em;
+    letter-spacing: 5px;
+  }
+  #start,
+  #stop,
+  #reset {
+    font-size: 0.7rem;
+    width: 70px;
+    padding: 9px;
+  }
+
+  .button {
+    padding-bottom: 2px;
+
+    button {
+      margin: 10px;
+    }
   }
 }
