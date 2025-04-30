@@ -3,7 +3,7 @@ const stopBtn = document.getElementById("stop");
 const resetBtn = document.getElementById("reset");
 const timerDisplay = document.getElementById("timer");
 
-let timeLeft =  10; // 25 minutes in seconds
+let timeLeft =  1500; // 25 minutes in seconds
 let interval; //to store the interval ID
 let isRunning = false; // Flag to check if the timer is running
 let state = "focus"; // Flag to check if the timer is in focus or break mode
