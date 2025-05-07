@@ -3,7 +3,7 @@ const stopBtn = document.getElementById("stop");
 const resetBtn = document.getElementById("reset");
 const timerDisplay = document.getElementById("timer");
 
-let timeLeft =  1500; // 25 minutes in seconds
+let timeLeft = 1500; // 25 minutes in seconds
 let interval; //to store the interval ID
 let isRunning = false; // Flag to check if the timer is running
 let state = "focus"; // Flag to check if the timer is in focus or break mode
@@ -42,7 +42,15 @@ function handleTimeout() {
   clearInterval(interval);
   playAlarmSound();
   popup();
-  timeLeft = 1500; // Reset to 25 minutes
+  //tell state
+  if (state === "focus") {
+    timeLeft = 1500; // Reset to 25 minutes
+  } else if (state === "break") {
+    timeLeft = 300; // Reset to 5 minutes
+  } else if (state === "longBreak") {
+    timeLeft = 900; // Reset to 15 minutes
+  }
+  // Update the display after time is up
   updateDisplay();
   isRunning = false;
 }
@@ -73,7 +81,13 @@ function stopTimer() {
 // Function to reset the timer
 function resetTimer() {
   clearInterval(interval);
-  timeLeft = 1500; // Reset to 25 minutes
+  if (state === "focus") {
+    timeLeft = 1500; // Reset to 25 minutes
+  } else if (state === "break") {
+    timeLeft = 300; // Reset to 5 minutes
+  } else if (state === "longBreak") {
+    timeLeft = 900; // Reset to 15 minutes
+  }
   isRunning = false; // Set the flag to false
   updateDisplay();
 }
@@ -89,7 +103,65 @@ function restTImer() {
   isRunning = false; // Set the flag to false
 }
 
+//added a state buttinon to switch between focus and break mode
+const workBtn = document.getElementById("work");
+const breakBtn = document.getElementById("break");
+const longBreakBtn = document.getElementById("longBreak");
+
+// Function to switch to work mode
+function workMode() {
+  state = "focus";
+  timeLeft = 1500; // Reset to 25 minutes
+  updateDisplay(); // Update the display after switching modes
+  clearInterval(interval); // Clear the interval when switching modes
+  isRunning = false; // Set the flag to false
+}
+
+// Function to switch to break mode
+function breakMode() {
+  state = "break";
+  timeLeft = 300; // Reset to 5 minutes
+  updateDisplay(); // Update the display after switching modes
+  clearInterval(interval); // Clear the interval when switching modes
+  isRunning = false; // Set the flag to false
+}
+
+//function to switch to long break mode
+function longBreakMode() {
+  state = "longBreak";
+  timeLeft = 900; // Reset to 15 minutes
+  updateDisplay(); // Update the display after switching modes
+  clearInterval(interval); // Clear the interval when switching modes
+  isRunning = false; // Set the flag to false
+}
+
+workBtn.addEventListener("click", workMode);
+breakBtn.addEventListener("click", breakMode);
+longBreakBtn.addEventListener("click", longBreakMode);
+
+//added a sidebar for menu
+const hamburger = document.getElementById("hamBurger");
+const sidebar = document.getElementById("sideBar");
+
+hamburger.addEventListener("click", function () {
+  sidebar.classList.toggle("active");
+  hamburger.classList.toggle("active");
+  hamburger.classList.toggle('is-active');
+  if (sidebar.classList.contains("active")) {
+    sidebar.style.right = "0px";
+  } else {
+    sidebar.style.right = "-500px";
+  }
+});
+
+// scroll nav
+
+
+
 //bugfix: the interval will not doubled when the start button is clicked multiple times
 //added alarm sound when the time finished
 //added a popup when the time is finished
 //close popup when the close button is clicked
+//bug found: the timer start automatically when change the mode to break or long break mode
+// added a sidebar for menu
+// added a scroll animation from nav to section
