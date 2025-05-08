@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POMODORO</title>
+    <title>studyTin</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Meta Keywords (tidak wajib, tapi bisa membantu sedikit) -->
+    <meta
+      name="keywords"
+      content="pomodoro, aplikasi, web sederhana, portofolio, developer, javascript, study, productive, timer, waktu, produktif, belajar, metode belajar, cozy"
+    />
+
+    <!-- Meta Author -->
+    <meta name="Dustin" content="Dustin Bernadi" />
   </head>
   <body>
     <!--header-->
     <header class="header">
       <nav class="nav">
+        <!--sidebar-->
         <ul class="sidebar" id="sideBar">
           <li><a href="#main-content">studyTin</a></li>
           <li><a href="#what">What</a></li>
@@ -17,12 +26,15 @@
           <li><a href="#how">How</a></li>
           <li><a href="#about">Other</a></li>
         </ul>
+
+        <!--topbar-->
         <ul class="topbar" id="topbar">
           <li><a href="#main-content">studyTin</a></li>
           <li class="noneDisplay"><a href="#what">What</a></li>
           <li class="noneDisplay"><a href="#why">Why</a></li>
           <li class="noneDisplay"><a href="#how">How</a></li>
           <li class="noneDisplay"><a href="#about">Other</a></li>
+          <!--tombol menu-->
           <div class="hamburger" id="hamBurger">
             <span></span>
             <span></span>
@@ -107,6 +119,8 @@
       </div>
     </div>
 
+    <!--alarm sound dan pop up-->
+
     <audio id="alarmSound" src="alarm.mp3"></audio>
     <div class="popup" id="popup">
       <div class="popup-content">
@@ -115,85 +129,118 @@
       </div>
     </div>
 
+    <!--hook-->
+
     <div class="hook">
       <p>
         Struggling to stay focused? Discover the Pomodoro Technique — a simple
         time-management method that helps you work smarter, not harder.
       </p>
     </div>
-    <section class="description">
-      <div class="description-content" id="what">
-        <h1>What is pomodoro?</h1>
 
-        <div class="what-content">
+    <!--description section-->
+    <div class="description">
+      <!--what-->
+      <section id="what">
+        <div class="description-content">
+          <h2>What is pomodoro?</h2>
+
+          <div class="what-content">
+            <p>
+              The Pomodoro Technique is a time management method developed by
+              Francesco Cirillo in the late 1980s. It uses a timer to break down
+              work into intervals, traditionally 25 minutes in length, separated
+              by short breaks. These intervals are known as "Pomodoros," after
+              the tomato-shaped kitchen timer that Cirillo used as a university
+              student.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--why-->
+      <section id="why">
+        <div class="description-content">
+          <h2>Why pomodoro?</h2>
+          <div class="why-pomodoro-content">
+            <p>
+              The Pomodoro Technique is a time management method that can help
+              you improve your productivity and focus. By breaking your work
+              into manageable intervals, you can maintain a high level of
+              concentration and avoid burnout. The technique also encourages
+              regular breaks, which can help refresh your mind and body.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--how-->
+      <section id="how">
+        <div class="description-content">
+          <h2>How to use?</h2>
+          <div class="how-content">
+            <ol>
+              <li>Start the timer by pressing the start button</li>
+              <li>
+                You can stop and reset the timer by pressing the stop and reset
+                button
+              </li>
+              <li>
+                After a 25 minute of focus, you will get a popup that tell you
+                the time's it over
+              </li>
+              <li>You can change to break session with 5 minute timer</li>
+              <li>
+                After 4 cycles, you will get a popup that tell you the time's it
+                over and you can take a longer break of 15 minutes
+              </li>
+              <li>You can repeat the cycle as many times as you want</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!--about-->
+      <section id="about">
+        <div class="description-content">
+          <h2>Made by Dustin</h2>
           <p>
-            The Pomodoro Technique is a time management method developed by
-            Francesco Cirillo in the late 1980s. It uses a timer to break down
-            work into intervals, traditionally 25 minutes in length, separated
-            by short breaks. These intervals are known as "Pomodoros," after the
-            tomato-shaped kitchen timer that Cirillo used as a university
-            student.
+            hi, im a computer science student. this is my small project. i
+            really study a lot to make this app. i hope you can enjoy it.
           </p>
         </div>
-      </div>
+      </section>
+    </div>
 
-      <div class="description-content" id="why">
-        <h1>Why pomodoro?</h1>
-        <div class="why-pomodoro-content">
-          <p>
-            The Pomodoro Technique is a time management method that can help you
-            improve your productivity and focus. By breaking your work into
-            manageable intervals, you can maintain a high level of concentration
-            and avoid burnout. The technique also encourages regular breaks,
-            which can help refresh your mind and body.
-          </p>
-        </div>
-      </div>
-
-      <div class="description-content" id="how">
-        <h1>How to use?</h1>
-
-        <div>
-          <p>
-            1. start the timer by pressing the start button <br />
-            2. you can stop and reset the timer by pressing the stop and reset
-            button <br />
-            3. after a 25 minute of focus, you will get a popup that tell you
-            the time's it over <br />
-            4. you can change to break session with 5 minute timer <br />
-            5. after 4 cycles, you will get a popup that tell you the time's it
-            over and you can take a longer break of 15 minutes <br />
-            6. you can repeat the cycle as many times as you want
-          </p>
-        </div>
-      </div>
-
-      <div class="description-content" id="about">
-        <h1>Made by Dustin</h1>
-        <p>
-          hi, im a computer science student. this is my small project. i really
-          study a lot to make this app. i hope you can enjoy it.
-        </p>
-        <p>if you want to support me. you can support me at <a href=""></a></p>
-      </div>
-    </section>
-
+    <!--footer-->
     <section class="footer">
       <div class="footer-content">
-        <h1>studyTin</h1>
+        <h2>studyTin</h2>
         <p>
-          studyTIn is a website made by dustin. this website is one of my small project during summer holiday. i hope that this website can help you study, work, or any other productive things more efficiently. keep study and always productive
+          studyTin is a website made by dustin. this website is one of my small
+          project during summer holiday. i hope that this website can help you
+          study, work, or any other productive things more efficiently. keep
+          study and always productive
         </p>
         <div class="social-media">
-          <a href="https://www.instagram.com/dustin_bernadi/"><img src="instagram.png" alt="instagram"></a>
-          <a href="https://x.com/BernadiDus36546"><img src="twitter.png" alt=""></a>
-          <a href="https://discordapp.com/users/698398698916413450"><img src="discord.png" alt=""></a>
+          <a href="https://www.instagram.com/dustin_bernadi/"
+            ><img src="instagram.png" alt="instagram"
+          /></a>
+          <a href="https://x.com/BernadiDus36546"
+            ><img src="twitter.png" alt="twitter"
+          /></a>
+          <a href="https://discordapp.com/users/698398698916413450"
+            ><img src="discord.png" alt="discord"
+          /></a>
         </div>
       </div>
 
-      <p class="copyright">made by dustin, 2025</p>
+      <p class="copyright">
+        &copy; 2025 Dustin. Made with ❤️ for educational purposes.
+      </p>
     </section>
 
+    <!--javascript-->
     <script src="script.js"></script>
   </body>
 </html>
