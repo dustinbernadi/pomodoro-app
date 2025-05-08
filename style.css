@@ -7,11 +7,10 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  overflow: auto;
   scrollbar-width: none;
 }
 
@@ -23,6 +22,10 @@ body {
   background-color: #fff9a8;
   text-align: center;
   align-items: center;
+}
+
+section {
+  scroll-margin-top: 4rem;
 }
 
 /*header*/
@@ -121,7 +124,7 @@ nav li:first-child {
   padding: 20px;
   backdrop-filter: blur(10px);
   transition: 0.2s ease-in-out;
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 .sidebar li {
@@ -147,6 +150,7 @@ nav li:first-child {
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-margin-top: 4rem;
 }
 
 .main-content h1 {
@@ -206,6 +210,7 @@ nav li:first-child {
 #reset {
   border: none;
   background-color: #03a791;
+  color: #000000;
   padding: 15px 40px;
   border-radius: 45px;
   font-size: 2rem;
@@ -402,7 +407,7 @@ svg {
   border-bottom: 1px solid #000000;
 }
 
-.description-content h1 {
+.description-content h2 {
   margin-bottom: 10px;
   font-size: 1.4em;
 }
@@ -410,6 +415,11 @@ svg {
 .description-content p {
   font-size: 1.2em;
   line-height: 1.6;
+}
+
+.how-content {
+  line-height: 1.6;
+  font-size: 1.2em;
 }
 
 
@@ -579,6 +589,14 @@ svg {
   .social-media img {
     width: 30px;
     height: 30px;
+  }
+
+  .description-content p {
+    font-size: 1em;
+  }
+
+  .how-content {
+    font-size: 1em;
   }
 
 }
